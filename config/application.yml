@@ -1,0 +1,28 @@
+default: &default
+  DATABASE_HOST: localhost
+  DATABASE_USERNAME: 'postgres'
+  DATABASE_PASSWORD: 'postgres'
+  WEB_HOST: 'localhost'
+
+development:
+  <<: *default
+  HOSTNAME: 'http://localhost:3030'
+
+test:
+  <<: *default
+  HOSTNAME: 'http://localhost:3030'
+
+staging:
+  <<: *default
+  DATABASE_USERNAME: 'postgres'
+  DATABASE_PASSWORD: 'hYG59287'
+  SECRET_KEY_BASE: 'aa415858c2d1301b8fa0b31c4276e7f5e7b1bb9a16ad4b638d2606ae13eceb430dcdc73eed047a2aa41513e10d18ddbe897269c428ebc730b1b6570a04fc6751'
+  WEB_HOST: ''
+
+production:
+  <<: *default
+  WEB_HOST: ''
+  DATABASE_USERNAME: 'postgres'
+  DATABASE_PASSWORD: 'postgres'
+  SECRET_KEY_BASE: 'aa415858c2d1301b8fa0b31c4276e7f5e7b1bb9a16ad4b638d2606ae13eceb430dcdc73eed047a2aa41513e10d18ddbe897269c428ebc730b1b6570a04fc6710'
+
