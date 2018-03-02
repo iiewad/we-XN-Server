@@ -1,5 +1,8 @@
 hunauapi:
   service_host: 'http://zsxy.hunau.edu.cn/api'
   service_endpoint: '/NDAppWebService.asmx'
+  service_post_endpoint: '/MUIInterface.asmx'
 
+  init_pridormid: 'CPES_LC'
   login_path: '/WSMemberLogin'
+  get_room_path: '/GETROOM'
