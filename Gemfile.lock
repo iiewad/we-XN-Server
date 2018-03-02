@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    api-versions (1.2.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
     arel (8.0.0)
     autoprefixer-rails (8.0.0)
       execjs
@@ -184,6 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api-versions (~> 1.2.1)
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (~> 2.13)
