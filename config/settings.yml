@@ -1,0 +1,5 @@
+hunauapi:
+  service_host: 'http://zsxy.hunau.edu.cn/api'
+  service_endpoint: '/NDAppWebService.asmx'
+
+  login_path: '/WSMemberLogin'

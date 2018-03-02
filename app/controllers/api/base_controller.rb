@@ -1,6 +1,6 @@
 class Api::BaseController < ApplicationController
-  include ApiHelper
-  before_action :sanitize
+  # include ApiHelper
+  # before_action :sanitize
 
   rescue_from ActionController::ParameterMissing, with: :parameter_missing
   rescue_from ActionController::RoutingError,     with: :not_found
@@ -13,6 +13,7 @@ class Api::BaseController < ApplicationController
                 else
                   [errors.to_s]
                 end
+
     Rails.logger.error "BadRequest: #{errors}"
     render 'api/base/error_message'
   end

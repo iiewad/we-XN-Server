@@ -1,0 +1,12 @@
+error_code:
+  error_types:
+    success: 000
+    admission_error: 100
+    parameter_error: 300
+    internal_logical_error: 500
+    other_services_error: 700
+    generally_error: 999
+  error_fields:
+    success: 0000
+    conversion_unsupported: 0011
+    no_enough_credit: 0014
