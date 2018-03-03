@@ -21,6 +21,13 @@ gem 'jquery-rails'
 gem 'api-versions', '~> 1.2.1'
 gem 'config'
 
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'devise'
+gem 'cancancan'
+gem 'pundit'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
