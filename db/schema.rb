@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302184506) do
+ActiveRecord::Schema.define(version: 20180303041143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20180302184506) do
     t.string "roomaccountid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pridormid"
+    t.string "address_type"
   end
 
   create_table "stu_users", force: :cascade do |t|
