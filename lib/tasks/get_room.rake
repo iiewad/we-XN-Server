@@ -1,31 +1,35 @@
 namespace :get_room_info do
-  desc 'Get ApartMent'
-  task get_apartment: :environment do
+  desc 'Get Room'
+  task get_room_info: :environment do
+    get_apartment
+    get_build
+    get_floor
+    get_room
+  end
+
+  def get_apartment
     request_hunau_api_get_room( ENV['HUNAU_API_PARAMS_PRIDORMID'], 'apartment' )
   end
 
-  desc 'Get Build'
-  task get_build: :environment do
+  def get_build
     Room.where(address_type: 'apartment').each do |apartment|
       request_hunau_api_get_room( apartment.dormid, 'build')
-      puts '/'
     end
+    puts '/'
   end
 
-  desc 'Get Floor'
-  task get_floor: :environment do
+  def get_floor
     Room.where(address_type: 'build').each do |build|
       request_hunau_api_get_room( build.dormid, 'floor' )
-      puts '*'
     end
+    puts '*'
   end
 
-  desc 'Get Room'
-  task get_room: :environment do
+  def get_room
     Room.where(address_type: 'floor').each do |room|
       request_hunau_api_get_room( room.dormid, 'room' )
-      puts '%'
     end
+    puts '%'
   end
 
   def request_hunau_api_get_room( pridormid, address_type )
