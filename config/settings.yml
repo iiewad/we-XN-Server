@@ -6,3 +6,8 @@ hunauapi:
   init_pridormid: 'CPES_LC'
   login_path: '/WSMemberLogin'
   get_room_path: '/GETROOM'
+
+wechatapi:
+  service_host: 'https://api.weixin.qq.com/sns/jscode2session?'
+  grant_type: 'authorization_code'
+

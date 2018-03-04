@@ -254,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   api-versions (~> 1.2.1)
+  bcrypt
   bootstrap-sass (~> 3.3.7)
   byebug
   cancancan

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       cache as: 'v1' do
         get 'bind-stu-user', to: 'bind_stu_user#index'
         get 'get-room', to: 'get_room#index'
+        get 'wechat-login', to: 'wechat_login#index'
       end
     end
   end
