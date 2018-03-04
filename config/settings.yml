@@ -1,11 +1,14 @@
 hunauapi:
   service_host: 'http://zsxy.hunau.edu.cn/api'
+  service_news_host: 'http://zsxy.hunau.edu.cn/mobile'
   service_endpoint: '/NDAppWebService.asmx'
   service_post_endpoint: '/MUIInterface.asmx'
+  service_news_endpoint: '/ajax/ArticleInfo_H.ashx'
 
   init_pridormid: 'CPES_LC'
   login_path: '/WSMemberLogin'
   get_room_path: '/GETROOM'
+  get_news_path: '/Newsget'
 
 wechatapi:
   service_host: 'https://api.weixin.qq.com/sns/jscode2session?'

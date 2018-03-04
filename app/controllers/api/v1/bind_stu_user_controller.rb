@@ -45,7 +45,6 @@ class Api::V1::BindStuUserController < Api::BaseController
         user_info["password"] = private_params["stu_password"]
         user_info["password_confirmation"] = private_params["stu_password"]
         user = StuUser.new(user_info)
-        debugger
         user_info["authentication_token"] = user.generate_authentication_token
 
         if user.save

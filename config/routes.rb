@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         get 'bind-stu-user', to: 'bind_stu_user#index'
         get 'get-room', to: 'get_room#index'
         get 'wechat-login', to: 'wechat_login#index'
+        get 'get-news', to: 'news#index'
       end
     end
   end

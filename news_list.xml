@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+    <Count>4623</Count>
+    <News>
+        <new>
+            <id>163182</id>
+            <Title>
+                <![CDATA[省委第八巡视组巡视湖南农业大学党委工作动员会召开]]>
+            </Title>
+            <IsClose>
+                <![CDATA[]]>
+            </IsClose>
+            <IsUser>
+                <![CDATA[0]]>
+            </IsUser>
+            <summary>
+                <![CDATA[校党委宣传部]]>
+            </summary>
+            <addtime>
+                <![CDATA[2018/3/2 19:21:40]]>
+            </addtime>
+            <MedioType>jpg</MedioType>
+            <CommentCount>100</CommentCount>
+            <Pic>http%3a%2f%2fzsxy.hunau.edu.cn%2fUploadImage%2f2013-9%2f30%2f130930120704_s.png</Pic>
+            <bigPic>http%3a%2f%2fzsxy.hunau.edu.cn%2fUploadImage%2f2013-9%2f30%2f130930000704.png</bigPic>
+            <from>
+      </from>
+        </new>
+        <new>
+            <id>163170</id>
+            <Title>
+                <![CDATA[国内首部全景式反映农业现代化进程的纪录片《大国根基》今晚央视九套开播]]>
+            </Title>
+            <IsClose>
+                <![CDATA[]]>
+            </IsClose>
+            <IsUser>
+                <![CDATA[0]]>
+            </IsUser>
+            <summary>
+                <![CDATA[宣传部 新闻中心]]>
+            </summary>
+            <addtime>
+                <![CDATA[2018/2/27 17:12:25]]>
+            </addtime>
+            <MedioType>jpg</MedioType>
+            <CommentCount>100</CommentCount>
+            <Pic>http%3a%2f%2fzsxy.hunau.edu.cn%2f%2fUploadImage%2f20180228%2f180228081837_s.png</Pic>
+            <bigPic>http%3a%2f%2fzsxy.hunau.edu.cn%2f%2fUploadImage%2f20180228%2f201802280818373312.png</bigPic>
+            <from>
+      </from>
+        </new>
+    </News>
+</Response>
