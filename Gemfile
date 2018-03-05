@@ -30,10 +30,20 @@ gem 'pundit'
 gem 'bcrypt'
 gem 'kaminari'
 
+gem "figaro"
+gem 'listen', '>= 3.0.5', '< 3.2'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'capistrano', '3.7.1'
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
+  gem 'sshkit-sudo'
 end
 
 group :development do
