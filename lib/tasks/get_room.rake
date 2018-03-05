@@ -1,4 +1,5 @@
 namespace :get_room_info do
+  require 'net/http'
   desc 'Get Room'
   task get_room_info: :environment do
     get_apartment
