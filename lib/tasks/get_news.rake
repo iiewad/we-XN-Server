@@ -42,8 +42,8 @@ namespace :get_news do
                       summary: e.xpath('summary').children.text.strip,
                       addtime: e.xpath('addtime').children.text.strip,
                       comment_count: e.xpath('CommentCount').children.text.strip,
-                      pic_path: e.xpath('Pic').children.text.strip,
-                      big_pic_path: e.xpath('bigPic').children.text.strip)
+                      pic_path: URI::decode(e.xpath('Pic').children.text.strip),
+                      big_pic_path: URI::decode(e.xpath('bigPic').children.text.strip) )
       if news.save
         puts '.'
       else
