@@ -39,7 +39,6 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 
 set :rvm_binary, '~/.rvm/bin/rvm'
 set :rvm_ruby_version, 'default'
-set :stages, ["production"]
 
 namespace :deploy do
   desc 'Restart the application'
