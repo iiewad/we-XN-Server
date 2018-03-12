@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get 'wechat-login', to: 'wechat_login#index'
         resources :news, only: [:index, :show]
         resources :grade, only: [:index]
+        resources :get_rooms, only: [:index]
       end
     end
   end
