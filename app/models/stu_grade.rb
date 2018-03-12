@@ -1,0 +1,2 @@
+class StuGrade < ApplicationRecord
+end

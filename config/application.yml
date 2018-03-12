@@ -14,6 +14,8 @@ default: &default
   HUNAU_API_PARAMS_PRIDORMID: 'CPES_LC'
   HUNAU_API_PARAMS_VID: 'aijfdfdlsafdsaff'
   HUNAU_API_PARAMS_NEWS_ID: '098765'
+  HUNAU_API_PARAMS_USER_FLAG: '20141114095328475'
+  HUNAU_API_PARAMS_GRADE__: '1520691591608' # 请求成绩不知道干什么的参数
 
 development:
   <<: *default

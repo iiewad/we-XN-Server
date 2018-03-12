@@ -4,8 +4,10 @@ hunauapi:
   service_endpoint: '/NDAppWebService.asmx'
   service_post_endpoint: '/MUIInterface.asmx'
   service_news_endpoint: '/ajax/ArticleInfo_H.ashx'
+  service_grades_endpoint: '/ResultsQuery'
 
   init_pridormid: 'CPES_LC'
+  callback: 'loadCJ_JsonpCallback'
   login_path: '/WSMemberLogin'
   get_room_path: '/GETROOM'
   get_news_path: '/Newsget'

@@ -1,5 +1,3 @@
-#encoding:gbk
-
 namespace :get_news do
   require 'net/http'
   require 'rexml/document'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304125626) do
+ActiveRecord::Schema.define(version: 20180310151542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(version: 20180304125626) do
     t.datetime "updated_at", null: false
     t.string "pridormid"
     t.string "address_type"
+  end
+
+  create_table "stu_grades", force: :cascade do |t|
+    t.string "xn"
+    t.string "xq"
+    t.string "xh"
+    t.string "xm"
+    t.string "kcmc"
+    t.string "xf"
+    t.string "cj"
+    t.string "kcxz"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stu_users", force: :cascade do |t|
