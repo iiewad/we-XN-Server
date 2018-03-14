@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :news, only: [:index, :show]
         resources :grade, only: [:index]
         resources :get_rooms, only: [:index]
+        get 'get_energy_query', to: 'get_energy#get_energy_query'
       end
     end
   end

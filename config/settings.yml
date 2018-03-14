@@ -11,6 +11,7 @@ hunauapi:
   login_path: '/WSMemberLogin'
   get_room_path: '/GETROOM'
   get_news_path: '/Newsget'
+  get_energy_query: '/EnergyQuery'
 
 wechatapi:
   service_host: 'https://api.weixin.qq.com/sns/jscode2session?'
