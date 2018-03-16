@@ -45,7 +45,7 @@ namespace :deploy do
   desc 'Restart the application'
   task :restart do
     on roles(:app) do
-      execute "cd #{deploy_to}/current && #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec pumactl -S #{shared_path}/tmp/pids/puma.state restart"
+      execute "cd #{deploy_to}/current && #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do pumactl -S #{shared_path}/tmp/pids/puma.state restart"
     end
   end
 
