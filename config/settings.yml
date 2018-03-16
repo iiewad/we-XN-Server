@@ -12,6 +12,7 @@ hunauapi:
   get_room_path: '/GETROOM'
   get_news_path: '/Newsget'
   get_energy_query: '/EnergyQuery'
+  get_surplus_query: '/QuerySurplus'
 
 wechatapi:
   service_host: 'https://api.weixin.qq.com/sns/jscode2session?'

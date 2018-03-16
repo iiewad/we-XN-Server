@@ -9,7 +9,8 @@ class Api::V1::GetEnergyController < ApplicationController
     energyParams['Room'] = params['Room']
     energyParams['Time'] = params['Time']
 
-    energyQuery = getEnergyQuery(energyParams)
+    queryType = params['queryType']
+    energyQuery = getEnergyQuery(energyParams, queryType)
 
     xmldoc = Nokogiri::XML(energyQuery)
     energyQuery = JSON.parse(xmldoc.child.child)
@@ -18,6 +19,6 @@ class Api::V1::GetEnergyController < ApplicationController
       message: '请求成功',
       data: energyQuery
     }
-
   end
+
 end

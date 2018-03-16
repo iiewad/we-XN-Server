@@ -1,10 +1,17 @@
 module Api::V1::GetEnergyHelper
   require 'net/http'
 
-  def getEnergyQuery(energyParams)
+  def getEnergyQuery(energyParams, queryType)
+
+    if queryType == 'energyQuery'
+      endpoint = Settings.hunauapi.get_energy_query
+    elsif queryType == 'surplusQuery'
+      endpoint = Settings.hunauapi.get_surplus_query
+    end
+
     uri_str = Settings.hunauapi.service_host +
               Settings.hunauapi.service_post_endpoint +
-              Settings.hunauapi.get_energy_query
+              endpoint
 
     puts uri_str
     sign_str = "userId=#{energyParams['userId']}Room=#{energyParams['Room']}Time=#{energyParams['Time']}#{ENV['HUNAU_API_PARAMS_AK']}"
