@@ -41,11 +41,49 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 set :rvm_binary, '~/.rvm/bin/rvm'
 set :rvm_ruby_version, 'default'
 
+after "deploy", "deploy:restart"
+after "deploy", "deploy:cleanup"
+
 namespace :deploy do
+  desc "start the application"
+  task :start do
+    on roles(:app) do
+      execute "cd #{current_path} && rails_env=#{fetch(:stage)} #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec puma -b 'unix://#{shared_path}/sockets/puma.sock' -s #{shared_path}/sockets/puma.state --control 'unix://#{shared_path}/sockets/pumactl.sock' >> #{shared_path}/log/puma-#{fetch(:stage)}.log 2>&1 &", :pty => false
+    end
+  end
+
+  desc "stop the application"
+  task :stop do
+    on roles => :app  do
+      execute "cd #{current_path} && rails_env=#{fetch(:stage)} #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec pumactl -s #{shared_path}/pids/puma.state stop"
+    end
+  end
+
+  desc "start the application"
+  task :start do
+    on roles(:app) do
+      execute "cd #{current_path} && rails_env=#{fetch(:stage)} #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec puma -b 'unix://#{shared_path}/sockets/puma.sock' -s #{shared_path}/sockets/puma.state --control 'unix://#{shared_path}/sockets/pumactl.sock' >> #{shared_path}/log/puma-#{fetch(:stage)}.log 2>&1 &", :pty => false
+    end
+  end
+
+  desc "stop the application"
+  task :stop do
+    on roles => :app  do
+      execute "cd #{current_path} && rails_env=#{fetch(:stage)} #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec pumactl -s #{shared_path}/pids/puma.state stop"
+    end
+  end
+
   desc 'Restart the application'
   task :restart do
     on roles(:app) do
       execute "cd #{deploy_to}/current && #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec pumactl -S #{shared_path}/tmp/pids/puma.state restart"
+    end
+  end
+
+  desc "Status of the application"
+  task :status do 
+    on roles(:app) do
+      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} #{fetch(:rvm_binary)} #{fetch(:rvm_ruby_version)} do bundle exec pumactl -S #{shared_path}/pids/puma.state stats"
     end
   end
 
@@ -56,3 +94,4 @@ namespace :deploy do
     end
   end
 end
+
