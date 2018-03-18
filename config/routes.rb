@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         resources :grade, only: [:index]
         resources :get_rooms, only: [:index]
         get 'get_energy_query', to: 'get_energy#get_energy_query'
+        get 'get_term', to: 'get_timetable#get_term'
       end
     end
   end
