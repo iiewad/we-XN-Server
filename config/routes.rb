@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         resources :get_rooms, only: [:index]
         get 'get_energy_query', to: 'get_energy#get_energy_query'
         get 'get_term', to: 'get_timetable#get_term'
+        get 'get_timetable', to: 'get_timetable#get_timetable'
       end
     end
   end
