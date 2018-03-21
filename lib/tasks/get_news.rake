@@ -3,27 +3,42 @@ namespace :get_news do
   require 'rexml/document'
   include REXML
 
-  desc 'Get News'
-  task get_news_from_hunauapi: :environment do
-    news_list = request_hunau_api_get_news_list
-    handle_news_list(news_list)
-    get_news_content
+  desc 'Get All News'
+  task get_all_news_from_hunauapi: :environment do
+    counter = 0
+    235.times do
+      pages = { index: counter, size: 20 }
+      news_list = request_hunau_api_get_news_list(pages)
+      handle_news_list(news_list)
+      get_news_content
+      counter += 1
+      sleep(3.second)
+      puts '*'
+    end
+    puts "Got" + counter  + "Times"
   end
 
-  def request_hunau_api_get_news_list
-    uri_str = Settings.hunauapi.service_host +
-              Settings.hunauapi.service_endpoint +
-              Settings.hunauapi.get_news_path
+  desc 'Get Newest News'
+  task get_newest_news: :environment do
+    pages = { index: 0, size: 10 }
+    news_list = request_hunau_api_get_news_list(pages)
+    handle_news_list(news_list)
+    get_news_content
+    puts '*'
+  end
 
-    # uri_str = 'http://zsxy.hunau.edu.cn/api/NDAppWebService.asmx/Newsget'
+  def request_hunau_api_get_news_list(pages)
+    uri_str = Settings.hunauapi.service_host +
+      Settings.hunauapi.service_endpoint +
+      Settings.hunauapi.get_news_path
 
     params = { res: 20,
                id: ENV['HUNAU_API_PARAMS_NEWS_ID'],
                vid: ENV['HUNAU_API_PARAMS_VID'],
                Access_Token: ENV['HUNAU_API_PARAMS_AK'],
                type: 5,
-               pageindex: 0,
-               pagesize: 100 }
+               pageindex: pages[:index],
+               pagesize: pages[:size] }
 
     uri = URI.parse(uri_str)
     uri.query = URI.encode_www_form(params)
@@ -55,15 +70,17 @@ namespace :get_news do
     News.where(content: nil).each do |news|
       news_content = JSON.parse(request_news_content_api(news.news_id))["RList"]
       content = Hash[*news_content]
-      content = content["Content"].force_encoding 'gbk'
-      content = content.encode
-      news.update_columns(content: content)
+      unless content.empty?
+        content = content["Content"].force_encoding 'gbk'
+        content = content.encode
+        news.update_columns(content: content)
+      end
     end
   end
 
   def request_news_content_api(news_id)
     uri_str = Settings.hunauapi.service_news_host +
-              Settings.hunauapi.service_news_endpoint
+      Settings.hunauapi.service_news_endpoint
 
     user_id = StuUser.first.cardcode
     params = { action: 'LoadData',
