@@ -32,6 +32,7 @@ gem 'kaminari'
 
 gem "figaro"
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
