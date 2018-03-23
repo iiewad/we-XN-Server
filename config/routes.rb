@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get 'get_energy_query', to: 'get_energy#get_energy_query'
         get 'get_term', to: 'get_timetable#get_term'
         get 'get_timetable', to: 'get_timetable#get_timetable'
+        get 'get_brows', to: 'get_brows#index'
       end
     end
   end
