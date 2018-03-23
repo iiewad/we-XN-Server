@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :news, only: [:index, :show]
         resources :grade, only: [:index]
         resources :get_rooms, only: [:index]
+        resources :tran_items, only: [:index]
         get 'get_energy_query', to: 'get_energy#get_energy_query'
         get 'get_term', to: 'get_timetable#get_term'
         get 'get_timetable', to: 'get_timetable#get_timetable'

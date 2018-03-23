@@ -1,0 +1,2 @@
+class TranItem < ApplicationRecord
+end

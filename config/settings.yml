@@ -15,6 +15,7 @@ hunauapi:
   get_surplus_query: '/QuerySurplus'
   get_term: '/GetTerm'
   get_timetable: '/GetStudentsKb'
+  get_tranitem: '/GettranItem'
 
 wechatapi:
   service_host: 'https://api.weixin.qq.com/sns/jscode2session?'
