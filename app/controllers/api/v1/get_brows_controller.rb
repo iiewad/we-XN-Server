@@ -9,9 +9,6 @@ class Api::V1::GetBrowsController < ApplicationController
               Settings.hunauapi.get_brows
     queryParams["SessionId"] = ''
     queryParams["ak"] = ENV['HUNAU_API_PARAMS_AK']
-    queryParams["pageNum"] = 0
-    queryParams["pageSize"] = 10
-    queryParams["pageindex"] = 0
     res = request_helper(queryParams, uri_str)
     render :json => {
       status: 'success',
