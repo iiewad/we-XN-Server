@@ -17,6 +17,7 @@ hunauapi:
   get_timetable: '/GetStudentsKb'
   get_tranitem: '/GettranItem'
   get_brows: '/GetBrows'
+  get_loss: '/GetReport'
 
 wechatapi:
   service_host: 'https://api.weixin.qq.com/sns/jscode2session?'

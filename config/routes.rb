@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         get 'get_term', to: 'get_timetable#get_term'
         get 'get_timetable', to: 'get_timetable#get_timetable'
         get 'get_brows', to: 'get_brows#index'
+        get 'loss', to: 'get_brows#loss'
       end
     end
   end
