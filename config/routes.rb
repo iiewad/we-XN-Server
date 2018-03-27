@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         get 'get_timetable', to: 'get_timetable#get_timetable'
         get 'get_brows', to: 'get_brows#index'
         get 'loss', to: 'get_brows#loss'
+        get 'get_borrow', to: 'borrow_book#index'
       end
     end
   end
