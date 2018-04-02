@@ -3,12 +3,21 @@ class Api::V1::GetBrowsController < ApplicationController
   include Api::ApiHelper
 
   def index
-    queryParams = JSON.parse(params["queryParams"])
+    queryParams = {
+      cardid: params['cardid'],
+      id: params['id'],
+      code: params['code'],
+      bData: params['bData'],
+      eData: params['eData'],
+      pageNum: params['pageNum'],
+      pageSize: params['pageSize'],
+      pageindex: params['pageindex'],
+      SessionId: params['SessionId'].empty? ? '' : params['SessionId'],
+      ak: ENV['HUNAU_API_PARAMS_AK']
+    }
     uri_str = Settings.hunauapi.service_host +
               Settings.hunauapi.service_endpoint +
               Settings.hunauapi.get_brows
-    queryParams["SessionId"] = ''
-    queryParams["ak"] = ENV['HUNAU_API_PARAMS_AK']
     res = request_helper(queryParams, uri_str)
     render :json => {
       status: 'success',
@@ -18,11 +27,15 @@ class Api::V1::GetBrowsController < ApplicationController
   end
 
   def loss
-    queryParams = JSON.parse(params["queryParams"])
+    queryParams = {
+      id: params['id'],
+      CardId: params['CardId'],
+      pwd: params['pwd'],
+      ak: ENV['HUNAU_API_PARAMS_AK']
+    }
     uri_str = Settings.hunauapi.service_host +
               Settings.hunauapi.service_endpoint +
               Settings.hunauapi.get_loss
-    queryParams["ak"] = ENV['HUNAU_API_PARAMS_AK']
     res = request_helper(queryParams, uri_str)
     render :json => {
       status: 'success',

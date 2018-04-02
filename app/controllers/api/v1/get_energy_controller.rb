@@ -9,7 +9,7 @@ class Api::V1::GetEnergyController < ApplicationController
     energyParams['Room'] = params['Room']
     energyParams['Time'] = params['Time']
 
-    queryType = params['queryType']
+    queryType = params['QueryType']
     energyQuery = getEnergyQuery(energyParams, queryType)
 
     xmldoc = Nokogiri::XML(energyQuery)
