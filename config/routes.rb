@@ -9,7 +9,8 @@ Rails.application.routes.draw do
       cache as: 'v1' do
         get 'bind-stu-user', to: 'bind_stu_user#index'
         get 'get-room', to: 'get_room#index'
-        get 'wechat-login', to: 'wechat_login#index'
+        get 'wx-login', to: 'wx_login#index'
+        get 'get-user-info', to: 'wx_login#get_user_info'
         resources :news, only: [:index, :show]
         resources :grade, only: [:index]
         resources :get_rooms, only: [:index]

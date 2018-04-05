@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module XnqnService
   class Application < Rails::Application
+    config.eager_load_paths << Rails.root.join('lib')
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
@@ -24,6 +26,5 @@ module XnqnService
         ENV[key] ||= value.to_s unless value.kind_of? Hash
       end
     end
-
   end
 end

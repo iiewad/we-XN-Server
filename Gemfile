@@ -34,6 +34,10 @@ gem "figaro"
 gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'whenever', require: false
 
+gem 'redis', '~> 3.0'
+gem 'redis-namespace', '~> 1.5.2'
+gem 'redis-rails', github: 'redis-store/redis-rails'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
