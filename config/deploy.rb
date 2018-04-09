@@ -59,3 +59,5 @@ namespace :deploy do
   end
 end
 
+after 'deploy', 'deploy:restart'
+
