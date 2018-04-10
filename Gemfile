@@ -22,6 +22,8 @@ gem 'api-versions', '~> 1.2.1'
 gem 'config'
 
 gem 'activeadmin'
+gem 'active_admin_flat_skin'
+gem "font-awesome-rails"
 
 # Plus integrations with:
 gem 'devise'
