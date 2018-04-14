@@ -12,4 +12,22 @@ ActiveAdmin.register StuUser do
 #   permitted
 # end
 
+  filter :schno
+  filter :name
+  filter :collegename, as: :select
+  filter :majorname
+
+  index do
+    selectable_column
+    column :name
+    column :grade
+    column :college
+    column :collegename
+    column :majorname
+    column :classesname
+    column :cardcode
+    column :schno
+    column :created_at
+    actions
+  end
 end

@@ -12,4 +12,16 @@ ActiveAdmin.register News do
 #   permitted
 # end
 
+  filter :title
+  filter :summary
+  filter :content
+  filter :addtime
+
+  index do
+    selectable_column
+    column :title
+    column :summary
+    column :addtime
+    actions
+  end
 end
