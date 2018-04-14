@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         get 'get_brows', to: 'get_brows#index'
         get 'loss', to: 'get_brows#loss'
         get 'get_borrow', to: 'borrow_book#index'
+        resources :feedback
       end
     end
   end

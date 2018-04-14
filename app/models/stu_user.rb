@@ -1,4 +1,6 @@
 class StuUser < ApplicationRecord
+  has_many :feedbacks
+
   validates :cardcode, :schno, presence: true,
                                uniqueness: true
   has_secure_password
