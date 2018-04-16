@@ -12,4 +12,18 @@ ActiveAdmin.register Room do
 #   permitted
 # end
 
+  filter :dormid
+  filter :dormname
+  filter :roomid
+  filter :pridormid
+  filter :address_type, as: :select
+
+  index do
+    column :dormid
+    column :dormname
+    column :roomid
+    column :roomaccountid
+    column :pridormid
+    column :address_type
+  end
 end
