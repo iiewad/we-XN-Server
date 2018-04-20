@@ -7,8 +7,7 @@ class Api::V1::BindStuUserController < Api::BaseController
 
   def index
     user = StuUser.find_by(schno: private_params["stu_number"])
-    if user && user.authenticate(private_params["stu_password"])
-      puts '1' * 123
+    if user
       # self.current_user = user
       if user.wechat_open_id.nil?
         wechat_user_flag = JSON.parse(request_wechat_login_api(params['code']))
@@ -24,7 +23,6 @@ class Api::V1::BindStuUserController < Api::BaseController
         }
       }
     else
-      puts '*' * 123
       res = request_hunau_api_login(private_params["stu_number"],
                                     private_params["stu_password"])
       login_info_xml = Nokogiri::XML res
@@ -45,8 +43,6 @@ class Api::V1::BindStuUserController < Api::BaseController
         user_info["user_type"] = user_info["type"]
         user_info.delete_if { |k, v| k == "type" }
         user_info["wechat_open_id"] = wechat_user_flag["openid"]
-        user_info["password"] = private_params["stu_password"]
-        user_info["password_confirmation"] = private_params["stu_password"]
         user_info["authentication_token"] = wechat_user_flag["openid"] + wechat_user_flag["session_key"]
         user = StuUser.new(user_info)
 

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get 'loss', to: 'get_brows#loss'
         get 'get_borrow', to: 'borrow_book#index'
         resources :feedback
+        post 'bind-room', to: 'stu_user#bind_room'
       end
     end
   end

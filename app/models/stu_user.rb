@@ -3,8 +3,8 @@ class StuUser < ApplicationRecord
 
   validates :cardcode, :schno, presence: true,
                                uniqueness: true
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+
+  store :dorm, accessors: [:apartment_id, :build_direction_id, :build_id, :floor_id, :room_id]
 
   def generate_authentication_token
     loop do

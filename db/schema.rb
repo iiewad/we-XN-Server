@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414063209) do
+ActiveRecord::Schema.define(version: 20180418140849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 20180414063209) do
     t.datetime "updated_at", null: false
     t.string "wechat_open_id"
     t.string "authentication_token"
-    t.string "password_digest"
+    t.string "dorm"
   end
 
   create_table "tran_items", force: :cascade do |t|
