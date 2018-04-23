@@ -17,10 +17,7 @@ class Api::V1::BindStuUserController < Api::BaseController
       render :json => {
         status: 'success',
         message: '绑定成功',
-        userinfo: {
-          cardcode: user.cardcode,
-          schno: user.schno
-        }
+        data: user
       }
     else
       res = request_hunau_api_login(private_params["stu_number"],
@@ -50,13 +47,14 @@ class Api::V1::BindStuUserController < Api::BaseController
           render :json => {
             status: 'success',
             message: '绑定成功',
-            userinfo: {
-              cardcode: user.cardcode,
-              schno: user.schno
-            }
+            data: user
           }
         else
-          return false
+          render :json => {
+            status: 'failed',
+            message: '绑定失败',
+            errors: user.errors.messages
+          }
         end
       end
     end

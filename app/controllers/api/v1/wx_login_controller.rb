@@ -7,7 +7,7 @@ class Api::V1::WxLoginController < ApplicationController
     if stu_user.nil?
       render :json => {
         status: 'failed',
-        message: '登录失败'
+        message: '登录失败, 未查询到绑定信息'
       }
     else
       # sessionid = SecureRandom.base64(64)
